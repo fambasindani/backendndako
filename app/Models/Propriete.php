@@ -32,6 +32,8 @@ class Propriete extends Model
         'statut1',
         'etat',
         'date_enregistrement',
+        'latitude',
+        'longitude',
     ];
 
     protected $casts = [
@@ -60,7 +62,7 @@ class Propriete extends Model
 
         public function utilisateur()
     {
-        return $this->belongsTo(Utilisateur::class, 'id_user');
+        return $this->belongsTo(Utilisateur::class, 'id_utilisateur');
     }
 
           public function typepropriete()

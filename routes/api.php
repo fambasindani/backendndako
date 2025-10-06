@@ -112,6 +112,9 @@ Route::delete('/proprietes/{id}', [ProprieteController::class, 'delete_propriete
 
 Route::get('/proprieteall', [ProprieteController::class, 'getallproprietes']);
 Route::get('/proprieteall/{id}', [ProprieteController::class, 'getallproprietesId']);
+Route::get('/derniersProprietes', [ProprieteController::class, 'getDerniersProprietes']);
+Route::get('premiersProprietes', [ProprieteController::class, 'getPremiersProprietes']);
+Route::get('getallproprieties', [ProprieteController::class, 'getToutPropriete']);
 
 
 

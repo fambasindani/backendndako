@@ -36,6 +36,7 @@ public function login(Request $request)
             'prenom' => $utilisateur->prenom,
             'nom_famille' => $utilisateur->nom_famille,
             'role' => $utilisateur->role,
+            'id'=> $utilisateur->id,
         ],
     ]);
 }

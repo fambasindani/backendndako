@@ -15,7 +15,7 @@ class CreateProprietesTable extends Migration
     {
         Schema::create('proprietes', function (Blueprint $table) {
         $table->id();
-         $table->integer('id_utilisateur');
+        $table->integer('id_utilisateur');
         $table->integer('id_type');
         $table->integer('id_province');
         $table->integer('id_ville');
@@ -32,6 +32,8 @@ class CreateProprietesTable extends Migration
         $table->boolean('statut');
         $table->boolean('statut1')->default(false);
         $table->boolean('etat')->default(true);
+        $table->decimal('latitude', 10, 7)->nullable(); // Ajout de la colonne latitude
+        $table->decimal('longitude', 10, 7)->nullable(); // Ajout de la colonne longitude
         $table->timestamp('date_enregistrement')->nullable();
         $table->timestamps();
         });

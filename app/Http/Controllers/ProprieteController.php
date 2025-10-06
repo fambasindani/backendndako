@@ -29,6 +29,51 @@ public function getallproprietes()
 }
 
 
+public function getPremiersProprietes()
+{
+    return Propriete::with([
+        'province',
+        'ville',
+        'commune',
+        'utilisateur',
+        'typepropriete'
+    ])
+    ->orderBy('id', 'asc') // ou un autre champ pertinent
+    ->take(10)
+    ->get();
+}
+
+public function getDerniersProprietes()
+{
+    return Propriete::with([
+        'province',
+        'ville',
+        'commune',
+        'utilisateur',
+        'typepropriete'
+    ])
+    ->orderBy('id', 'desc') // ou 'created_at' si tu veux les plus récents
+    ->take(10)
+    ->get();
+}
+
+
+
+public function getToutPropriete()
+{
+    return Propriete::with([
+        'province',
+        'ville',
+        'commune',
+        'utilisateur',
+        'typepropriete'
+    ])
+    ->orderBy('id', 'desc') // ou 'created_at' si tu veux les plus récents
+    ->paginate(50);
+}
+
+
+
 public function getallproprietesId($id)
 { 
    return Propriete::with([
@@ -57,6 +102,8 @@ public function getallproprietesId($id)
             'quartier' => 'required|string|max:255',
             'avenue' => 'required|string|max:255',
             'prix' => 'required|numeric',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
             'nombre_chambre' => 'required|numeric',
             'nombre_salle_de_bain' => 'required|numeric',
             'dimension' => 'required|string|max:255',
@@ -125,6 +172,8 @@ public function getallproprietesId($id)
                 'description' => 'sometimes|string|max:500',
                 'image_principale' => 'sometimes|image|mimes:jpg,jpeg,png|max:2048',
                 'autres_images.*' => 'sometimes|image|mimes:jpg,jpeg,png|max:2048',
+                 'latitude' => 'required|numeric',
+                  'longitude' => 'required|numeric',
             ]);
 
             if ($request->hasFile('image_principale')) {
