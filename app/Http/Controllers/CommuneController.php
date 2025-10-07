@@ -9,10 +9,17 @@ use Illuminate\Validation\ValidationException;
 class CommuneController extends Controller
 {
     // 🔍 Liste des communes actives
-    public function get_commune()
+  /*   public function get_commune()
     {
         return Commune::where('etat', 1)->get();
-    }
+    } */
+
+public function get_commune()
+{
+    return Commune::with('ville')
+                ->where('etat', 1)
+                ->get();
+}
 
  public function create_commune(Request $request)
 {

@@ -63,10 +63,12 @@ class ProvinceController extends Controller
 
             $province->update($validated);
 
-            return response()->json([
+             return response()->json($province, 200);
+
+          /*   return response()->json([
                 'message' => 'Province mise à jour avec succès.',
                 'data' => $province
-            ], 200);
+            ], 200); */
 
         } catch (ValidationException $e) {
             return response()->json([

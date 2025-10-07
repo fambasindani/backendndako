@@ -72,6 +72,7 @@ public function get_villes()
             ]);
 
             $ville->update($validated);
+            // return response()->json($ville
 
             return response()->json([
                 'message' => 'Ville mise à jour avec succès.',

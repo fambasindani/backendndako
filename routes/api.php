@@ -86,6 +86,7 @@ Route::delete('/provinces/{id}', [ProvinceController::class, 'delete_province'])
 // routes pour commune
 Route::get('/communes', [CommuneController::class, 'get_commune']);
 Route::post('/communes', [CommuneController::class, 'create_commune']);
+Route::put('/communes/{id}', [CommuneController::class, 'update_commune']);
 Route::get('/communes/{id}', [CommuneController::class, 'edit_commune']);
 Route::put('/communes/{id}', [CommuneController::class, 'update_commune']);
 Route::delete('/communes/{id}', [CommuneController::class, 'delete_commune']);
@@ -96,8 +97,9 @@ Route::delete('/communes/{id}', [CommuneController::class, 'delete_commune']);
 //routes pour ville
 Route::get('/villes', [VilleController::class, 'get_villes']);
 Route::post('/villes', [VilleController::class, 'create_ville']);
-Route::get('/villes/{id}', [VilleController::class, 'edit_ville']);
 Route::put('/villes/{id}', [VilleController::class, 'update_ville']);
+Route::get('/villes/{id}', [VilleController::class, 'edit_ville']);
+
 Route::delete('/villes/{id}', [VilleController::class, 'delete_ville']);
 
 
@@ -115,6 +117,10 @@ Route::get('/proprieteall/{id}', [ProprieteController::class, 'getallproprietesI
 Route::get('/derniersProprietes', [ProprieteController::class, 'getDerniersProprietes']);
 Route::get('premiersProprietes', [ProprieteController::class, 'getPremiersProprietes']);
 Route::get('getallproprieties', [ProprieteController::class, 'getToutPropriete']);
+Route::get('proprieteIdUser/{id}', [ProprieteController::class, 'getallproprieteIdUser']);
+
+
+
 
 
 

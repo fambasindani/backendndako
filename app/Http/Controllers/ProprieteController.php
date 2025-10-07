@@ -29,6 +29,20 @@ public function getallproprietes()
 }
 
 
+public function getallproprieteIdUser($iduser)
+{
+    return Propriete::with([
+        'province',
+        'ville',
+        'commune',
+        'utilisateur',
+        'typepropriete'
+    ])
+    ->where('id_utilisateur', $iduser) // Utiliser la virgule pour les paramètres
+    ->get();
+}
+
+
 public function getPremiersProprietes()
 {
     return Propriete::with([
