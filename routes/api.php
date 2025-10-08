@@ -118,6 +118,7 @@ Route::get('/derniersProprietes', [ProprieteController::class, 'getDerniersPropr
 Route::get('premiersProprietes', [ProprieteController::class, 'getPremiersProprietes']);
 Route::get('getallproprieties', [ProprieteController::class, 'getToutPropriete']);
 Route::get('proprieteIdUser/{id}', [ProprieteController::class, 'getallproprieteIdUser']);
+Route::post('getProprietesFiltrees', [ProprieteController::class, 'getAllProprietesFiltrees']);
 
 
 

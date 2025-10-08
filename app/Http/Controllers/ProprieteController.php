@@ -29,6 +29,36 @@ public function getallproprietes()
 }
 
 
+
+public function getAllProprietesFiltrees(Request $request)
+{
+    // 🛡️ Validation stricte
+    $request->validate([
+        'id_type' => 'required|integer',
+        'nombre_chambre' => 'required|integer',
+        'nombre_salle_de_bain' => 'required|integer',
+        'prix_initiale' => 'required|numeric',
+        'prix_final' => 'required|numeric',
+    ]);
+
+    // 🔍 Requête filtrée
+    $query = Propriete::with([
+        'province',
+        'ville',
+        'commune',
+        'utilisateur',
+        'typepropriete'
+    ])
+    ->where('id_type', $request->id_type)
+    ->where('nombre_chambre', $request->nombre_chambre)
+    ->where('nombre_salle_de_bain', $request->nombre_salle_de_bain)
+    ->whereBetween('prix', [$request->prix_initiale, $request->prix_final]);
+
+    return response()->json($query->get());
+}
+
+
+
 public function getallproprieteIdUser($iduser)
 {
     return Propriete::with([
